@@ -53,20 +53,22 @@
                   <div class="mb-3">
                     <input class="form-control" type="email" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" placeholder="Email address" name="email" required>
                   </div>
-                  <div class="col-auto">
-                    <div class="form-row">
-                      <div class="col mb-3">
-                        <input class="form-control" type="password" placeholder="Password" name="password" required>
-                      </div>                  
-                      <div class="col mb-3">
-                        <input class="form-control" type="password" placeholder="Confirm Password" name="password" required>
-                      </div>
-                      <p class="fs--1 text-600 mb-0">Password must be at least <a class="mb-1">8</a> 
+                  <div class="form-row">
+                    <div class="col mb-3">
+                      <input class="form-control" type="password" placeholder="Password" name="password" required>
+                    </div>                  
+                    <div class="col mb-3">
+                      <input class="form-control" type="password" placeholder="Confirm Password" name="password" required>
+                    </div>
+                    <div class="mb-3 ">
+                      <p class="fs--1 text-600 mb-1">Password must be at least <a class="mb-0" >8</a> 
                         characters long and must contain an <a class="mb-1">Uppercase Letter </a> 
                         and a <a class="mb-1">Number</a>
                       </p>
-                    </div> 
-                  </div>
+
+                    </div>
+
+                  </div> 
                   <!-- Impliment EJS here to add the error message to the screen https://ejs.co/ -->
                   <div class="form-check"><input class="form-check-input" type="checkbox" id="remember-me"
                       name="rememberMe"><label class="form-label" for="remember-me">Remember Me</label></div>
