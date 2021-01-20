@@ -80,7 +80,8 @@ module.exports = {
                     return
                 }
                 if (rememberMe) {
-                    // Allow the user to be remembered by the server. When they close the browser and end their session they should not have to login again once they attempt to go to the homepage
+                    // Allow the user to be remembered by the server. When they close the browser 
+                    // and end their session they should not have to login again once they attempt to go to the homepage
                 } else {
                     // Do not remember the user
                 }
@@ -135,7 +136,8 @@ module.exports = {
                     }
                     Passport.authenticate('local')(req, res, function() {
                         if (rememberMe) {
-                        	// Allow the user to be remembered by the server. When they close the browser and end their session they should not have to login again once they attempt to go to the homepage
+                            // Allow the user to be remembered by the server. 
+                            // When they close the browser and end their session they should not have to login again once they attempt to go to the homepage
                         } else {
                             // Do not remember the user
                         }
@@ -146,7 +148,8 @@ module.exports = {
         })
     },
     isLoggedIn: function(req, res, next) {
-    	// Add a check to see if the user is logged in. If the user is logged in. Call next(), otherwize, redirect them to the login page
+        // Add a check to see if the user is logged in. 
+        // If the user is logged in. Call next(), otherwize, redirect them to the login page
         res.redirect("/login")
     },
     logout: function(req, res) {
