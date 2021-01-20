@@ -41,6 +41,6 @@ app.use(express.static('public'))
 app.use(express.static('files'))
 app.use('/', routes)
 
-server.listen(process.env.PORT || 80, function() {
+server.listen(process.env.PORT || 8000, function() {
     console.log("Starting Server")
 })
