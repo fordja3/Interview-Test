@@ -48,7 +48,7 @@
                 <form action="/signup" method="post" id='form'>
                   <div class="mb-3">
                     <input id='username' class="form-control" type="text" placeholder="Username" name="username" required>
-                      <p class="fs--1 text-600 mb-0">Username must be at least <a>6</a> characters long.</p>
+                      <p class="fs--1 text-600 mb-0">Username must be at least <b style="color: #0099E6;">6</b> characters long.</p>
                   </div>                  
                   <div class="mb-3">
                     <input class="form-control" type="email" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" placeholder="Email address" name="email" required>
@@ -60,16 +60,21 @@
                     <div class="col mb-3">
                       <input class="form-control" type="password" placeholder="Confirm Password" name="password" required>
                     </div>
-                    <div class="mb-3 ">
-                      <p class="fs--1 text-600 mb-1">Password must be at least <a class="mb-0" >8</a> 
-                        characters long and must contain an <a class="mb-1">Uppercase Letter </a> 
-                        and a <a class="mb-1">Number</a>
-                      </p>
-
-                    </div>
-
                   </div> 
+                  <div class="mb-3">
+                    <p class="fs--1 text-600 mb-3">Password must be at least <b style="color:#0099E6;">8</b> 
+                      characters long and must contain an <b style="color:#0099E6; ">Uppercase Letter </b> 
+                      and a <b style="color:#0099E6;">Number</b>
+                    </p>
+                  </div>
                   <!-- Impliment EJS here to add the error message to the screen https://ejs.co/ -->
+                  <% if (locals.errors) { %>
+                    <ul>
+                        <% Object.values(errors).forEach(function(error){ %>
+                          <p class="fs--1 text-600 mb-3" style="color: darkred;"><%= errorMessage.msg %></p>
+                        <% }); %>
+                    </ul>
+                  <% } %>
                   <div class="form-check"><input class="form-check-input" type="checkbox" id="remember-me"
                       name="rememberMe"><label class="form-label" for="remember-me">Remember Me</label></div>
                   <div class="mb-3"><button class="btn btn-primary btn-block mt-3" type="submit"

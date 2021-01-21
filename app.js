@@ -31,6 +31,7 @@ controller.configure(app)
 app.use(bodyParser.urlencoded({
     extended: true
 }))
+
 app.use(fileUpload())
 app.set("secretKey", "DaveIsCool")
 
@@ -41,6 +42,7 @@ app.use(express.static('public'))
 app.use(express.static('files'))
 app.use('/', routes)
 
+// changed the port to 8000 to run on my machine
 server.listen(process.env.PORT || 8000, function() {
     console.log("Starting Server")
 })

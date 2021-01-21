@@ -72,6 +72,8 @@ module.exports = {
                 res.render("login", {
                 	errorMessage: "Incorrect Login"
                 })
+                // * added this print out to check if data is being sent correctly * 
+                console.log(user + " has bad login")
                 return
             }
             req.logIn(user, function(err) {
@@ -82,8 +84,10 @@ module.exports = {
                 if (rememberMe) {
                     // Allow the user to be remembered by the server. When they close the browser 
                     // and end their session they should not have to login again once they attempt to go to the homepage
+                    passport.authenticate("cookie", { session: true })
                 } else {
                     // Do not remember the user
+                    passport.authenticate("cookie", { session: false })
                 }
                 return res.redirect('/')
             })
@@ -116,7 +120,9 @@ module.exports = {
         }
 
         UserModel.findOne({
-            // Search query should be looking for a user with the provided username or a user with the provided email
+        //*** */   // Search query should be looking for a user 
+        //            with the provided username or a user with the provided email
+        
         }, function(err, foundUser) {
             if (err) {
             	console.log("Error finding userModel in signup: %O", err)
@@ -137,9 +143,13 @@ module.exports = {
                     Passport.authenticate('local')(req, res, function() {
                         if (rememberMe) {
                             // Allow the user to be remembered by the server. 
-                            // When they close the browser and end their session they should not have to login again once they attempt to go to the homepage
+                            // When they close the browser and end their session they should 
+                            //not have to login again once they attempt to go to the homepage
+                            passport.authenticate("cookie", { session: true })
+
                         } else {
                             // Do not remember the user
+                            passport.authenticate("cookie", { session: false })
                         }
                         res.redirect('/')
                     })
@@ -150,7 +160,11 @@ module.exports = {
     isLoggedIn: function(req, res, next) {
         // Add a check to see if the user is logged in. 
         // If the user is logged in. Call next(), otherwize, redirect them to the login page
-        res.redirect("/login")
+        if(user){
+            req.next()
+        }else{
+            res.redirect("/login")
+        }
     },
     logout: function(req, res) {
         req.logout()
