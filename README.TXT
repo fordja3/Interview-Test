@@ -3,7 +3,7 @@ There are several things I would like you to do
 *1: impliment the remember me functionality. 
     It should be implimented in the controller.js file under the folder controllers
 
-2: Allow login using email. This should be implimented in the user.js under the models folder
+*2: Allow login using email. This should be implimented in the user.js under the models folder
 
 3: Search for a user with the username that was provided OR the email that was provided in controllers.js
 
