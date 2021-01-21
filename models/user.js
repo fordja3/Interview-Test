@@ -7,8 +7,10 @@ var UserSchema = new mongoose.Schema({
 	password: String
 })
 
+// adding email field to login options
 UserSchema.plugin(passportLocalMongoose, {
-	usernameField: 'username'
+	usernameField: 'username', 
+	emailField: 'email'
 })
 
 module.exports = mongoose.model('User', UserSchema)

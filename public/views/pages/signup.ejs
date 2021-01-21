@@ -68,11 +68,9 @@
                     </p>
                   </div>
                   <!-- Impliment EJS here to add the error message to the screen https://ejs.co/ -->
-                  <% if (locals.errors) { %>
+                  <% if (locals.err) { %>
                     <ul>
-                        <% Object.values(errors).forEach(function(error){ %>
-                          <p class="fs--1 text-600 mb-3" style="color: darkred;"><%= errorMessage.msg %></p>
-                        <% }); %>
+                      <p class="fs--1 text-600 mb-3" style="color: darkred;"><%= errorMessage.message %></p>
                     </ul>
                   <% } %>
                   <div class="form-check"><input class="form-check-input" type="checkbox" id="remember-me"

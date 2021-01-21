@@ -119,10 +119,11 @@ module.exports = {
             return
         }
 
-        UserModel.findOne({
-        //*** */   // Search query should be looking for a user 
-        //            with the provided username or a user with the provided email
-        
+        UserModel.findOne({ 
+            username: username,    
+            email: email
+        //**// Search query should be looking for a user 
+        //   with the provided username or a user with the provided email      
         }, function(err, foundUser) {
             if (err) {
             	console.log("Error finding userModel in signup: %O", err)

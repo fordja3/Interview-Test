@@ -14,7 +14,7 @@ var routes = require('./routes/routes')
 var controller = require('./controllers/controller')
 
 var databaseName = 'Test'
-mongoose.connect('mongodb://localhost/' + databaseName, {
+mongoose.connect('mongodb://localhost:27017/' + databaseName, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
